@@ -8,8 +8,10 @@ I bought an cheap Mini-HD Wifi RearView Camera years ago. There was an app for t
 As I never was a fan of that app, and also want to use this cam with an open source mobile linux distro, I started to look at his cams protocol to use it with an alternative app.
 
 The cam spans its own wifi network: V-Car-e2f170
+```console
 > airmon-ng start wlan0
 > airodump-ng wlan0mon
+```console
 
 ![01-airodump.png](images/01-airodump.png)
 
