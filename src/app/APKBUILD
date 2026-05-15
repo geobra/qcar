@@ -1,0 +1,34 @@
+# Contributor:
+# Maintainer:
+pkgname=qcar
+pkgver=1.0.0
+pkgrel=0
+pkgdesc="qcar"
+url="http://some-git-source.org"
+arch="all"
+license="qpl"
+depends="qt6-qtbase kirigami qt6-qtdeclarative qt6-qtmultimedia ki18n qqc2-desktop-style mpv-libs"
+makedepends="cmake extra-cmake-modules ninja-build ninja-is-really-ninja qt6-qtbase-dev qt6-qtdeclarative-dev kirigami kirigami-dev ki18n-dev qqc2-desktop-style-dev qt6-qtmultimedia-dev mpv-dev"
+checkdepends=""
+install=""
+subpackages="$pkgname-dev $pkgname-doc"
+source="$pkgname-$pkgver.tar.bz2"
+builddir="$srcdir/$pkgname-$pkgver"
+options="!check"
+
+build() {
+	cmake -S . -B build
+	cmake --build build
+}
+
+package() {
+	install -Dm755 "$builddir"/build/"$pkgname" "$pkgdir"/bin/"$pkgname"
+	install -Dm644 "$srcdir/$pkgname-$pkgver"/resources/"$pkgname".desktop "$pkgdir"/usr/share/applications/"$pkgname".desktop
+	install -Dm644 "$srcdir/$pkgname-$pkgver"/resources/"$pkgname".png "$pkgdir"/usr/share/icons/hicolor/256x256/apps/"$pkgname".png
+}
+
+subpackages=""
+
+sha512sums="
+6876b5a1ef1a3ec1dc697c0b87b712f278927b6a0c91aff4f7c5ed7b574a16925762c4b30eec47cbc47b74a54d7e334bb4867e31e69aa1e71310a523c6a8e8bb  kitu-1.0.0.tar.bz2
+"
