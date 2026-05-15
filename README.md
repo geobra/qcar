@@ -45,7 +45,9 @@ But which name, which password? What to send?
 
 As this is an open wifi connection, with no security at all, lets have a look at the network traffic. Do some capturing while connecting to the cam with the official app:
 
+```console
 > airodump-ng --bssid 1C:BF:CE:E2:F1:70 -c 4 -w /tmp/fcar.pcap wlan0mon
+```
 
 And analyze it with wireshark, filtering on the ip address:
 
@@ -79,7 +81,9 @@ So, lets wrap up the assumptions:
 
 With this in mind, try to prove the assumption and send the caputred login sequence to the camera while looking at the app debug output:
 
+```console
 > echo "7e 0f 10 11 00 06 68 6f 6e 67 62 6f 08 32 30 31 35 30 31 30 31 10 0d" | xxd -r -p | nc -v -w 2 192.179.8.1 6320
+```
 
 ![09nctest.png](images/09_nc_test.png)
 
