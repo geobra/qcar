@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=qcar
+GenericName=Wifi Webcam
+Keywords=wifi webcam
+Exec=qcar
+Icon=/usr/share/icons/hicolor/256x256/apps/qcar.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Qt;
+X-GNOME-UsesNotifications=true

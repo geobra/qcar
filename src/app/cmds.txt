@@ -1,0 +1,11 @@
+
+./create_archive.sh
+cp APKBUILD qcar-1.0.0.tar.bz2 ~/.local/var/pmbootstrap/cache_git/pmaports/main/qcar/
+./pmbootstrap.py checksum qcar 
+./pmbootstrap.py build qcar --arch aarch64 --force
+./pmbootstrap.py sideload qcar --arch=aarch64 --install-key --host 192.168.23.149
+
+
+tail -f /home/schorsch/.local/var/pmbootstrap/log.txt
+cat ~/.config/playit/playit.conf
+
